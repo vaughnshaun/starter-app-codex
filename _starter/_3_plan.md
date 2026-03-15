@@ -1,0 +1,1 @@
+use the latest react 19 and latest expo 55 for the frontend. Also use the latest supabase 2.78.1 for the backend
