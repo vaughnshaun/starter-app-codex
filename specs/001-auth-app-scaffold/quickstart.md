@@ -37,6 +37,12 @@
 7. Navigate to profile and verify the correct account details display.
 8. Attempt to reopen `/` or `/profile` without a valid session and confirm the app redirects to login.
 
+## Timed Acceptance Validation
+
+- Measure signup -> verification link -> home completion time against `SC-001` and record the result in `specs/001-auth-app-scaffold/acceptance-results.md`.
+- Measure forgot-password request -> recovery link -> password reset completion time against `SC-004` and record the result in `specs/001-auth-app-scaffold/acceptance-results.md`.
+- Record any retry attempts or failure reasons alongside the timing results so acceptance data is auditable.
+
 ## Done Criteria
 
 - Unit, integration, and end-to-end tests all pass.

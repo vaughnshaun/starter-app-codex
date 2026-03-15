@@ -20,6 +20,8 @@
 - **Success outcome**: Creates an account, sends a verification email, and shows a verification-pending confirmation state
 - **Failure outcomes**:
 - Existing-account conflicts keep the user on `/sign-up` and show a clear corrective message
+- Password confirmation mismatch keeps the user on `/sign-up` and shows validation feedback
+- Passwords shorter than 8 characters keep the user on `/sign-up` and show validation feedback
 - Invalid input keeps the user on `/sign-up` and shows validation feedback
 - Backend or network failure keeps the user on `/sign-up` and shows a retriable service error
 
@@ -39,6 +41,8 @@
 - **Success outcome**: Updates the password and navigates to `/login` with a success state
 - **Failure outcomes**:
 - Missing or invalid recovery state shows an error and a path back to `/forgot-password`
+- Password confirmation mismatch keeps the user on `/reset-password` and shows validation feedback
+- Passwords shorter than 8 characters keep the user on `/reset-password` and show validation feedback
 - Invalid password input keeps the user on `/reset-password` and shows validation feedback
 - Backend or network failure keeps the user on `/reset-password` and shows a retriable service error
 
@@ -50,7 +54,8 @@
 - Verification links create a verified session and navigate to `/`
 - Recovery links navigate to `/reset-password`
 - **Failure outcomes**:
-- Invalid, expired, or already-used links show a non-destructive error state with a resend or retry path
+- Invalid, expired, or already-used verification links show a non-destructive error state with a resend-verification action
+- Invalid, expired, or already-used recovery links show a non-destructive error state with a retry path back to `/forgot-password`
 
 ### Route: `/`
 

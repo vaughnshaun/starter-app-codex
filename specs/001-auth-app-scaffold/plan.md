@@ -16,7 +16,7 @@ Build an Expo SDK 55 mobile application scaffold for signup, email verification,
 **Target Platform**: iOS and Android via Expo managed workflow, backed by hosted or local Supabase services  
 **Project Type**: mobile-app + managed backend  
 **Performance Goals**: Signup verification callback or login success renders home within 2 seconds p95 after the auth link is processed on a normal network; in-app route changes complete within 300ms when data is already available  
-**Constraints**: No business logic in route components; protected routes must fail closed; only public Supabase keys ship to the client; service-role credentials stay server-side only; verification links must redirect authenticated users to home; recovery links must open a password-reset flow instead of protected content; minimize custom backend code to stay low-cost and portable  
+**Constraints**: No business logic in route components; protected routes must fail closed; only public Supabase keys ship to the client; service-role credentials stay server-side only; Supabase email-confirmation enforcement must remain enabled so unverified users cannot obtain protected sessions at the provider boundary; verification links must redirect authenticated users to home; recovery links must open a password-reset flow instead of protected content; minimize custom backend code to stay low-cost and portable  
 **Scale/Scope**: Single-role MVP with 4 public auth screens, 2 protected screens, read-only profile data, and initial adoption sized for up to 1k monthly active users and 100 concurrent sessions
 
 ## Constitution Check
@@ -45,6 +45,7 @@ specs/001-auth-app-scaffold/
 ├── research.md
 ├── data-model.md
 ├── quickstart.md
+├── acceptance-results.md
 ├── contracts/
 │   └── mobile-auth-profile.md
 └── tasks.md

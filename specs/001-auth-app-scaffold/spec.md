@@ -92,18 +92,18 @@ As an authenticated user, I want a simple profile page so I can confirm which ac
 - **FR-001**: System MUST provide a public login page for unauthenticated users.
 - **FR-002**: System MUST provide a public signup page for new users.
 - **FR-003**: System MUST provide a public forgot-password flow for users who cannot remember their password.
-- **FR-004**: System MUST allow new users to create an account with the required signup credentials.
+- **FR-004**: System MUST allow new users to create an account with `email`, `password`, and `password confirmation`; passwords MUST be at least 8 characters long.
 - **FR-005**: System MUST send an email verification link immediately after successful signup.
 - **FR-006**: System MUST keep newly created accounts in an unverified state until the user completes email verification.
-- **FR-007**: System MUST prevent unverified users from accessing protected pages and from completing normal sign-in until email verification is complete.
+- **FR-007**: System MUST prevent unverified users from accessing protected pages and from completing normal sign-in until email verification is complete by enforcing verification at the authentication-provider or session-issuance boundary, even if client-side guards are bypassed.
 - **FR-008**: System MUST process a valid email verification link, mark the user as verified, establish an authenticated session, and redirect the user to the home page.
-- **FR-009**: System MUST handle invalid, expired, or already-used verification links with a clear error state and a path to request another verification email.
+- **FR-009**: System MUST handle invalid, expired, or already-used verification links with a clear error state that includes a resend-verification action.
 - **FR-010**: System MUST allow verified users with valid credentials to sign in and establish an authenticated session.
 - **FR-011**: System MUST reject invalid sign-in attempts and show a user-friendly error message without exposing sensitive account details.
 - **FR-012**: System MUST allow users to request password-reset instructions from the forgot-password flow.
 - **FR-013**: System MUST send a password reset email without revealing whether the submitted email address belongs to an existing account.
 - **FR-014**: System MUST process a valid password reset link by opening a password-reset flow where the user can choose a new password.
-- **FR-015**: System MUST allow a user with a valid recovery state to submit a new password and return to the login page with a success confirmation.
+- **FR-015**: System MUST allow a user with a valid recovery state to submit a new password that follows the signup password rules and return to the login page with a success confirmation.
 - **FR-016**: System MUST handle invalid or expired password reset links with a clear error state and a retry path.
 - **FR-017**: System MUST restrict the home page and profile page to authenticated users only.
 - **FR-018**: System MUST redirect unauthenticated requests for protected pages to the login page.
@@ -111,7 +111,7 @@ As an authenticated user, I want a simple profile page so I can confirm which ac
 - **FR-020**: System MUST clearly indicate which primary destination is currently active in the authenticated navigation.
 - **FR-021**: System MUST provide a home page that confirms the user is signed in and serves as the default destination after login or successful email verification.
 - **FR-022**: System MUST provide a profile page that displays the signed-in user's basic account details.
-- **FR-023**: System MUST create or ensure a basic profile record exists for each newly verified account before the profile page is accessed.
+- **FR-023**: System MUST create or ensure a basic profile record exists for each newly verified account before the user reaches authenticated screens that depend on profile data.
 - **FR-024**: System MUST end the authenticated session when the user signs out and return the user to the login page.
 - **FR-025**: System MUST handle unavailable authentication or profile data services with a clear failure state that allows the user to retry or return to a safe page.
 - **FR-026**: System MUST preserve the application shell so that signup, verification, login, password recovery, home, and profile pages follow a consistent structure and naming that can be extended by future features.
