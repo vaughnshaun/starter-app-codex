@@ -1,0 +1,17 @@
+appId: com.starter.mobile
+---
+- launchApp
+- tapOn: Email
+- inputText: verified@example.com
+- tapOn: Password
+- inputText: password123
+- tapOn: Sign in
+- assertVisible: Home
+- tapOn: Sign out
+- tapOn: Forgot password
+- inputText: verified@example.com
+- tapOn: Send reset email
+- assertVisible: If that account exists
+- openLink: startercodex://auth/callback#type=recovery&access_token=token&refresh_token=refresh
+- assertVisible: Finish the recovery flow.
+

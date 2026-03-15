@@ -1,0 +1,32 @@
+{
+  "name": "starter-app-codex",
+  "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "packageManager": "npm@11.6.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "test": "npm run test --workspace @starter/mobile",
+    "typecheck": "npm run typecheck --workspace @starter/mobile"
+  },
+  "overrides": {
+    "react": "19.2.4",
+    "react-test-renderer": "19.2.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@types/node": "^24.5.2",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "react": "19.2.4",
+    "react-test-renderer": "19.2.4",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.41.0"
+  }
+}

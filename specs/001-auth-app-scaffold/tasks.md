@@ -23,10 +23,10 @@
 
 **Purpose**: Initialize the Expo 55 mobile workspace, deep-link configuration, and baseline tooling
 
-- [ ] T001 Initialize the workspace manifests in `package.json` and `apps/mobile/package.json`
-- [ ] T002 Configure Expo 55, Expo Router, TypeScript, and the app deep-link scheme in `apps/mobile/app.json`, `apps/mobile/tsconfig.json`, and `apps/mobile/babel.config.js`
-- [ ] T003 [P] Configure Jest Expo and shared mobile test setup in `apps/mobile/jest.config.ts` and `apps/mobile/tests/setup.ts`
-- [ ] T004 [P] Configure linting, formatting, and workspace scripts in `eslint.config.js`, `.prettierrc`, and `package.json`
+- [X] T001 Initialize the workspace manifests in `package.json` and `apps/mobile/package.json`
+- [X] T002 Configure Expo 55, Expo Router, TypeScript, and the app deep-link scheme in `apps/mobile/app.json`, `apps/mobile/tsconfig.json`, and `apps/mobile/babel.config.js`
+- [X] T003 [P] Configure Jest Expo and shared mobile test setup in `apps/mobile/jest.config.ts` and `apps/mobile/tests/setup.ts`
+- [X] T004 [P] Configure linting, formatting, and workspace scripts in `eslint.config.js`, `.prettierrc`, and `package.json`
 
 ---
 
@@ -36,15 +36,15 @@
 
 **⚠️ CRITICAL**: No user story work should begin until this phase is complete
 
-- [ ] T005 Create Supabase project config with provider-level email-confirmation enforcement and the profile schema migration in `supabase/config.toml` and `supabase/migrations/202603150001_create_profiles.sql`
-- [ ] T006 [P] Seed local verified and unverified accounts plus row-level-security checks in `supabase/seed.sql` and `supabase/tests/profiles_rls.sql`
-- [ ] T007 [P] Implement environment loading and auth redirect configuration in `apps/mobile/src/infrastructure/config/env.ts` and `apps/mobile/src/infrastructure/config/auth-redirect.ts`
-- [ ] T008 [P] Implement the shared Supabase client bootstrap and auth event wiring in `apps/mobile/src/infrastructure/supabase/client.ts` and `apps/mobile/src/infrastructure/supabase/auth-events.ts`
-- [ ] T009 [P] Implement secure session and pending-auth storage adapters in `apps/mobile/src/infrastructure/storage/session-storage.ts` and `apps/mobile/src/infrastructure/storage/pending-auth-storage.ts`
-- [ ] T010 [P] Define shared auth, email-action, navigation, and profile contracts in `apps/mobile/src/domain/auth/session.ts`, `apps/mobile/src/domain/auth/auth-repository.ts`, `apps/mobile/src/domain/auth/email-action.ts`, `apps/mobile/src/domain/navigation/routes.ts`, and `apps/mobile/src/domain/profile/profile.ts`
-- [ ] T011 Implement the app-level auth session controller and provider shell in `apps/mobile/src/application/auth/session-controller.ts` and `apps/mobile/src/application/auth/auth-provider.tsx`
-- [ ] T012 Implement the root route guard, hydration gate, and shared auth error mapping in `apps/mobile/app/_layout.tsx` and `apps/mobile/src/application/auth/auth-errors.ts`
-- [ ] T013 Implement generic auth link parsing and callback coordination in `apps/mobile/src/application/auth/handle-email-action.ts` and `apps/mobile/src/infrastructure/supabase/email-action-parser.ts`
+- [X] T005 Create Supabase project config with provider-level email-confirmation enforcement and the profile schema migration in `supabase/config.toml` and `supabase/migrations/202603150001_create_profiles.sql`
+- [X] T006 [P] Seed local verified and unverified accounts plus row-level-security checks in `supabase/seed.sql` and `supabase/tests/profiles_rls.sql`
+- [X] T007 [P] Implement environment loading and auth redirect configuration in `apps/mobile/src/infrastructure/config/env.ts` and `apps/mobile/src/infrastructure/config/auth-redirect.ts`
+- [X] T008 [P] Implement the shared Supabase client bootstrap and auth event wiring in `apps/mobile/src/infrastructure/supabase/client.ts` and `apps/mobile/src/infrastructure/supabase/auth-events.ts`
+- [X] T009 [P] Implement secure session and pending-auth storage adapters in `apps/mobile/src/infrastructure/storage/session-storage.ts` and `apps/mobile/src/infrastructure/storage/pending-auth-storage.ts`
+- [X] T010 [P] Define shared auth, email-action, navigation, and profile contracts in `apps/mobile/src/domain/auth/session.ts`, `apps/mobile/src/domain/auth/auth-repository.ts`, `apps/mobile/src/domain/auth/email-action.ts`, `apps/mobile/src/domain/navigation/routes.ts`, and `apps/mobile/src/domain/profile/profile.ts`
+- [X] T011 Implement the app-level auth session controller and provider shell in `apps/mobile/src/application/auth/session-controller.ts` and `apps/mobile/src/application/auth/auth-provider.tsx`
+- [X] T012 Implement the root route guard, hydration gate, and shared auth error mapping in `apps/mobile/app/_layout.tsx` and `apps/mobile/src/application/auth/auth-errors.ts`
+- [X] T013 Implement generic auth link parsing and callback coordination in `apps/mobile/src/application/auth/handle-email-action.ts` and `apps/mobile/src/infrastructure/supabase/email-action-parser.ts`
 
 **Checkpoint**: Foundation is ready. User stories can now be implemented and tested independently.
 
@@ -60,18 +60,18 @@
 
 > Write these tests first and confirm they fail before implementing the story.
 
-- [ ] T014 [P] [US1] Write failing unit tests for signup validation and verification-pending UI in `apps/mobile/tests/unit/auth/sign-up-screen.test.tsx`
-- [ ] T015 [P] [US1] Write failing integration tests for signup, duplicate-account handling, verification resend, and email verification callbacks in `apps/mobile/tests/integration/auth/sign-up-flow.test.tsx`
-- [ ] T016 [P] [US1] Write the failing Maestro signup and verification journey in `apps/mobile/tests/e2e/sign-up-verification-flow.yaml`
+- [X] T014 [P] [US1] Write failing unit tests for signup validation and verification-pending UI in `apps/mobile/tests/unit/auth/sign-up-screen.test.tsx`
+- [X] T015 [P] [US1] Write failing integration tests for signup, duplicate-account handling, verification resend, and email verification callbacks in `apps/mobile/tests/integration/auth/sign-up-flow.test.tsx`
+- [X] T016 [P] [US1] Write the failing Maestro signup and verification journey in `apps/mobile/tests/e2e/sign-up-verification-flow.yaml`
 
 ### Implementation for User Story 1
 
-- [ ] T017 [P] [US1] Extend the Supabase auth repository for signup and verification resend support in `apps/mobile/src/infrastructure/supabase/supabase-auth-repository.ts`
-- [ ] T018 [P] [US1] Implement the signup use case and verification state model in `apps/mobile/src/application/auth/sign-up.ts` and `apps/mobile/src/application/auth/verification-state.ts`
-- [ ] T019 [P] [US1] Build the signup form and verification-pending screen in `apps/mobile/src/ui/components/sign-up-form.tsx` and `apps/mobile/src/ui/screens/sign-up-screen.tsx`
-- [ ] T020 [US1] Implement the auth callback route for email verification, verification-link error handling, resend-verification CTA, and home redirect in `apps/mobile/app/auth/callback.tsx`, `apps/mobile/src/application/auth/handle-email-action.ts`, and `apps/mobile/src/ui/screens/auth-link-error-screen.tsx`
-- [ ] T021 [US1] Wire the public signup route and login-to-signup navigation in `apps/mobile/app/sign-up.tsx` and `apps/mobile/src/ui/screens/login-screen.tsx`
-- [ ] T022 [US1] Ensure newly verified users get a basic profile record before landing home in `apps/mobile/src/application/profile/ensure-profile.ts` and `apps/mobile/src/application/auth/session-controller.ts`
+- [X] T017 [P] [US1] Extend the Supabase auth repository for signup and verification resend support in `apps/mobile/src/infrastructure/supabase/supabase-auth-repository.ts`
+- [X] T018 [P] [US1] Implement the signup use case and verification state model in `apps/mobile/src/application/auth/sign-up.ts` and `apps/mobile/src/application/auth/verification-state.ts`
+- [X] T019 [P] [US1] Build the signup form and verification-pending screen in `apps/mobile/src/ui/components/sign-up-form.tsx` and `apps/mobile/src/ui/screens/sign-up-screen.tsx`
+- [X] T020 [US1] Implement the auth callback route for email verification, verification-link error handling, resend-verification CTA, and home redirect in `apps/mobile/app/auth/callback.tsx`, `apps/mobile/src/application/auth/handle-email-action.ts`, and `apps/mobile/src/ui/screens/auth-link-error-screen.tsx`
+- [X] T021 [US1] Wire the public signup route and login-to-signup navigation in `apps/mobile/app/sign-up.tsx` and `apps/mobile/src/ui/screens/login-screen.tsx`
+- [X] T022 [US1] Ensure newly verified users get a basic profile record before landing home in `apps/mobile/src/application/profile/ensure-profile.ts` and `apps/mobile/src/application/auth/session-controller.ts`
 
 **Checkpoint**: User Story 1 is independently functional and can serve as the onboarding MVP increment.
 
@@ -85,17 +85,17 @@
 
 ### Tests for User Story 2 ⚠️
 
-- [ ] T023 [P] [US2] Write failing unit tests for login, forgot-password, and reset-password screens in `apps/mobile/tests/unit/auth/login-screen.test.tsx`, `apps/mobile/tests/unit/auth/forgot-password-screen.test.tsx`, and `apps/mobile/tests/unit/auth/reset-password-screen.test.tsx`
-- [ ] T024 [P] [US2] Write failing integration tests for sign-in, backend-enforced unverified-account denial, neutral reset responses, and password recovery in `apps/mobile/tests/integration/auth/auth-service.test.tsx` and `apps/mobile/tests/integration/auth/password-reset-flow.test.tsx`
-- [ ] T025 [P] [US2] Write the failing Maestro login and recovery journey in `apps/mobile/tests/e2e/login-recovery-flow.yaml`
+- [X] T023 [P] [US2] Write failing unit tests for login, forgot-password, and reset-password screens in `apps/mobile/tests/unit/auth/login-screen.test.tsx`, `apps/mobile/tests/unit/auth/forgot-password-screen.test.tsx`, and `apps/mobile/tests/unit/auth/reset-password-screen.test.tsx`
+- [X] T024 [P] [US2] Write failing integration tests for sign-in, backend-enforced unverified-account denial, neutral reset responses, and password recovery in `apps/mobile/tests/integration/auth/auth-service.test.tsx` and `apps/mobile/tests/integration/auth/password-reset-flow.test.tsx`
+- [X] T025 [P] [US2] Write the failing Maestro login and recovery journey in `apps/mobile/tests/e2e/login-recovery-flow.yaml`
 
 ### Implementation for User Story 2
 
-- [ ] T026 [P] [US2] Implement sign-in, forgot-password, and complete-password-reset use cases in `apps/mobile/src/application/auth/sign-in.ts`, `apps/mobile/src/application/auth/request-password-reset.ts`, and `apps/mobile/src/application/auth/complete-password-reset.ts`
-- [ ] T027 [P] [US2] Build the forgot-password and reset-password screens in `apps/mobile/src/ui/screens/forgot-password-screen.tsx` and `apps/mobile/src/ui/screens/reset-password-screen.tsx`
-- [ ] T028 [P] [US2] Extend the Supabase auth repository for password recovery, new-password updates, and provider-issued unverified-account errors in `apps/mobile/src/infrastructure/supabase/supabase-auth-repository.ts`
-- [ ] T029 [US2] Wire the login, forgot-password, and reset-password routes in `apps/mobile/app/login.tsx`, `apps/mobile/app/forgot-password.tsx`, and `apps/mobile/app/reset-password.tsx`
-- [ ] T030 [US2] Handle recovery email callbacks, success messages, and expired-link states in `apps/mobile/app/auth/callback.tsx` and `apps/mobile/src/application/auth/auth-errors.ts`
+- [X] T026 [P] [US2] Implement sign-in, forgot-password, and complete-password-reset use cases in `apps/mobile/src/application/auth/sign-in.ts`, `apps/mobile/src/application/auth/request-password-reset.ts`, and `apps/mobile/src/application/auth/complete-password-reset.ts`
+- [X] T027 [P] [US2] Build the forgot-password and reset-password screens in `apps/mobile/src/ui/screens/forgot-password-screen.tsx` and `apps/mobile/src/ui/screens/reset-password-screen.tsx`
+- [X] T028 [P] [US2] Extend the Supabase auth repository for password recovery, new-password updates, and provider-issued unverified-account errors in `apps/mobile/src/infrastructure/supabase/supabase-auth-repository.ts`
+- [X] T029 [US2] Wire the login, forgot-password, and reset-password routes in `apps/mobile/app/login.tsx`, `apps/mobile/app/forgot-password.tsx`, and `apps/mobile/app/reset-password.tsx`
+- [X] T030 [US2] Handle recovery email callbacks, success messages, and expired-link states in `apps/mobile/app/auth/callback.tsx` and `apps/mobile/src/application/auth/auth-errors.ts`
 
 **Checkpoint**: User Stories 1 and 2 both work independently, covering onboarding and account recovery.
 
@@ -109,17 +109,17 @@
 
 ### Tests for User Story 3 ⚠️
 
-- [ ] T031 [P] [US3] Write failing unit tests for active navigation state and sign-out actions in `apps/mobile/tests/unit/navigation/auth-nav.test.tsx`
-- [ ] T032 [P] [US3] Write failing integration tests for authenticated route transitions between home and profile in `apps/mobile/tests/integration/navigation/protected-navigation.test.tsx`
-- [ ] T033 [P] [US3] Write the failing Maestro navigation flow for home-profile-home and sign-out in `apps/mobile/tests/e2e/navigation-flow.yaml`
+- [X] T031 [P] [US3] Write failing unit tests for active navigation state and sign-out actions in `apps/mobile/tests/unit/navigation/auth-nav.test.tsx`
+- [X] T032 [P] [US3] Write failing integration tests for authenticated route transitions between home and profile in `apps/mobile/tests/integration/navigation/protected-navigation.test.tsx`
+- [X] T033 [P] [US3] Write the failing Maestro navigation flow for home-profile-home and sign-out in `apps/mobile/tests/e2e/navigation-flow.yaml`
 
 ### Implementation for User Story 3
 
-- [ ] T034 [P] [US3] Implement the sign-out use case and authenticated navigation model in `apps/mobile/src/application/auth/sign-out.ts` and `apps/mobile/src/domain/navigation/nav-item.ts`
-- [ ] T035 [P] [US3] Build the authenticated navigation UI and active-link styling in `apps/mobile/src/ui/navigation/auth-nav.tsx` and `apps/mobile/src/ui/components/nav-link.tsx`
-- [ ] T036 [P] [US3] Build the home screen shell and signed-in confirmation content in `apps/mobile/src/ui/screens/home-screen.tsx`
-- [ ] T037 [US3] Wire the home and profile routes through the authenticated shell in `apps/mobile/app/index.tsx` and `apps/mobile/app/profile.tsx`
-- [ ] T038 [US3] Connect sign-out to secure session teardown and login navigation in `apps/mobile/src/ui/navigation/auth-nav.tsx` and `apps/mobile/src/application/auth/session-controller.ts`
+- [X] T034 [P] [US3] Implement the sign-out use case and authenticated navigation model in `apps/mobile/src/application/auth/sign-out.ts` and `apps/mobile/src/domain/navigation/nav-item.ts`
+- [X] T035 [P] [US3] Build the authenticated navigation UI and active-link styling in `apps/mobile/src/ui/navigation/auth-nav.tsx` and `apps/mobile/src/ui/components/nav-link.tsx`
+- [X] T036 [P] [US3] Build the home screen shell and signed-in confirmation content in `apps/mobile/src/ui/screens/home-screen.tsx`
+- [X] T037 [US3] Wire the home and profile routes through the authenticated shell in `apps/mobile/app/index.tsx` and `apps/mobile/app/profile.tsx`
+- [X] T038 [US3] Connect sign-out to secure session teardown and login navigation in `apps/mobile/src/ui/navigation/auth-nav.tsx` and `apps/mobile/src/application/auth/session-controller.ts`
 
 **Checkpoint**: The authenticated shell is navigable end to end and still independently testable.
 
@@ -133,16 +133,16 @@
 
 ### Tests for User Story 4 ⚠️
 
-- [ ] T039 [P] [US4] Write failing unit tests for profile fallback rendering and retry states in `apps/mobile/tests/unit/profile/profile-screen.test.tsx`
-- [ ] T040 [P] [US4] Write failing integration tests for profile loading and partial-data handling in `apps/mobile/tests/integration/profile/profile-repository.test.tsx`
-- [ ] T041 [P] [US4] Write the failing Maestro profile flow for account details and retry behavior in `apps/mobile/tests/e2e/profile-flow.yaml`
+- [X] T039 [P] [US4] Write failing unit tests for profile fallback rendering and retry states in `apps/mobile/tests/unit/profile/profile-screen.test.tsx`
+- [X] T040 [P] [US4] Write failing integration tests for profile loading and partial-data handling in `apps/mobile/tests/integration/profile/profile-repository.test.tsx`
+- [X] T041 [P] [US4] Write the failing Maestro profile flow for account details and retry behavior in `apps/mobile/tests/e2e/profile-flow.yaml`
 
 ### Implementation for User Story 4
 
-- [ ] T042 [P] [US4] Implement the Supabase profile repository and DTO mapping in `apps/mobile/src/infrastructure/supabase/supabase-profile-repository.ts` and `apps/mobile/src/infrastructure/supabase/profile-mapper.ts`
-- [ ] T043 [P] [US4] Implement the profile query use case and profile state machine in `apps/mobile/src/application/profile/get-current-profile.ts` and `apps/mobile/src/application/profile/profile-state.ts`
-- [ ] T044 [P] [US4] Build the profile screen component with fallback fields and retry UI in `apps/mobile/src/ui/screens/profile-screen.tsx`
-- [ ] T045 [US4] Wire profile route loading and shared profile selectors in `apps/mobile/app/profile.tsx`, `apps/mobile/src/application/profile/profile-selectors.ts`, and `apps/mobile/src/ui/screens/home-screen.tsx`
+- [X] T042 [P] [US4] Implement the Supabase profile repository and DTO mapping in `apps/mobile/src/infrastructure/supabase/supabase-profile-repository.ts` and `apps/mobile/src/infrastructure/supabase/profile-mapper.ts`
+- [X] T043 [P] [US4] Implement the profile query use case and profile state machine in `apps/mobile/src/application/profile/get-current-profile.ts` and `apps/mobile/src/application/profile/profile-state.ts`
+- [X] T044 [P] [US4] Build the profile screen component with fallback fields and retry UI in `apps/mobile/src/ui/screens/profile-screen.tsx`
+- [X] T045 [US4] Wire profile route loading and shared profile selectors in `apps/mobile/app/profile.tsx`, `apps/mobile/src/application/profile/profile-selectors.ts`, and `apps/mobile/src/ui/screens/home-screen.tsx`
 
 **Checkpoint**: All four user stories are independently functional, including profile data loading and fallback handling.
 
@@ -152,8 +152,8 @@
 
 **Purpose**: Finalize docs, automation, and cross-story verification
 
-- [ ] T046 [P] Document setup, environment variables, deep-link configuration, and test commands in `README.md` and `apps/mobile/.env.example`
-- [ ] T047 [P] Add CI automation for Expo tests and Supabase validation in `.github/workflows/mobile-auth-scaffold.yml`
+- [X] T046 [P] Document setup, environment variables, deep-link configuration, and test commands in `README.md` and `apps/mobile/.env.example`
+- [X] T047 [P] Add CI automation for Expo tests and Supabase validation in `.github/workflows/mobile-auth-scaffold.yml`
 - [ ] T048 Verify the quickstart flow and record final command updates in `specs/001-auth-app-scaffold/quickstart.md` and `AGENTS.md`
 - [ ] T049 Validate `SC-001` and `SC-004` completion-time targets and record results in `specs/001-auth-app-scaffold/acceptance-results.md` and `specs/001-auth-app-scaffold/quickstart.md`
 

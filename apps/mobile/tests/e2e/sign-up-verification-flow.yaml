@@ -1,0 +1,14 @@
+appId: com.starter.mobile
+---
+- launchApp
+- tapOn: Create account
+- inputText: user@example.com
+- tapOn: Password
+- inputText: password123
+- tapOn: Confirm password
+- inputText: password123
+- tapOn: Create account
+- assertVisible: Check your inbox
+- openLink: startercodex://auth/callback#type=signup&access_token=token&refresh_token=refresh
+- assertVisible: Home
+

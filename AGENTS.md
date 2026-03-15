@@ -31,4 +31,6 @@ TypeScript 5.9+, Expo SDK 55.x, React 19.2.x as supported by Expo 55, React Nati
 - 001-auth-app-scaffold: Added TypeScript 5.9+, Expo SDK 55.x, React 19.2.x as supported by Expo 55, React Native 0.83.x, SQL migrations for Supabase + `expo@55.x`, `react@19.2.x`, `react-native@0.83.x`, `expo-router`, `expo-linking`, `expo-secure-store`, `@supabase/supabase-js@2.78.0`, Supabase Auth, Supabase Postgres
 
 <!-- MANUAL ADDITIONS START -->
+- Local auth scaffold checks: `npm test`, `npm run lint`, `npm run typecheck`
+- Supabase validation commands: `npx supabase db reset`, `npx supabase db lint`, `npx supabase test db supabase/tests/profiles_rls.sql`
 <!-- MANUAL ADDITIONS END -->

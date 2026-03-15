@@ -1,0 +1,16 @@
+appId: com.starter.mobile
+---
+- launchApp
+- tapOn: Email
+- inputText: verified@example.com
+- tapOn: Password
+- inputText: password123
+- tapOn: Sign in
+- assertVisible: Home
+- tapOn: Profile
+- assertVisible: Review the current account details.
+- tapOn: Home
+- assertVisible: Signed in as
+- tapOn: Sign out
+- assertVisible: Sign in
+
