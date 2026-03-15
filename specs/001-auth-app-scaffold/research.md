@@ -1,4 +1,4 @@
-# Research: Authentication Navigation Scaffold
+# Research: Authentication Account Scaffold
 
 ## Decision 1: Use Expo SDK 55.x for the frontend scaffold
 
@@ -18,19 +18,31 @@
 - **Rationale**: The user requested `2.78.1`, but the npm registry returns a 404 for that version. `2.78.0` is the nearest published 2.78 release and keeps the implementation installable while staying as close as possible to the requested version line.
 - **Alternatives considered**: The latest overall Supabase JS release was rejected because it diverges from the user's requested version family. Using an unpublished `2.78.1` version was rejected because it is invalid.
 
-## Decision 4: Protect routes with an authenticated application shell
+## Decision 4: Use self-service signup with mandatory email verification
+
+- **Decision**: Allow users to create their own accounts, require email verification before protected access, and route successful verification directly to the home page.
+- **Rationale**: This matches the updated product scope and creates a complete onboarding loop without requiring pre-provisioned accounts or manual activation.
+- **Alternatives considered**: Admin-created accounts were rejected because they no longer match the requested scope. Optional verification was rejected because the user explicitly requested verification by email link before access.
+
+## Decision 5: Handle verification and recovery links through an in-app callback route
+
+- **Decision**: Process verification and password recovery emails through a shared auth callback route that interprets the link intent, redirects verified users to home, and routes recovery users into the reset-password flow.
+- **Rationale**: A single callback entry point keeps link handling consistent, makes deep-link validation explicit, and satisfies the redirect requirement for successful email verification.
+- **Alternatives considered**: Opening email actions in a generic browser flow was rejected because it weakens the mobile experience and makes post-link routing less predictable. Separate callback routes per action were rejected because they duplicate shared link parsing logic.
+
+## Decision 6: Protect routes with an authenticated application shell
 
 - **Decision**: Split navigation into a public login route and protected authenticated routes for home and profile, with session hydration occurring before protected content renders.
 - **Rationale**: This structure directly satisfies the spec requirement that unauthenticated access be redirected before protected content appears.
 - **Alternatives considered**: Per-screen auth checks were rejected because they duplicate navigation rules and increase the chance of inconsistent access control. Leaving routes public and hiding content client-side was rejected because it fails closed-security requirements.
 
-## Decision 5: Model profile data separately from the auth identity
+## Decision 7: Model profile data separately from the auth identity and ensure it exists after verification
 
-- **Decision**: Keep identity in Supabase Auth and store user-facing profile attributes in a `profiles` table keyed one-to-one to the auth user identifier.
-- **Rationale**: This matches common Supabase practice, keeps auth-managed fields separate from app-owned profile data, and supports future profile expansion without mutating auth internals.
-- **Alternatives considered**: Storing all user-visible fields only in auth metadata was rejected because it makes future validation and relational queries harder. Creating a fully custom backend user store was rejected because it adds avoidable complexity and cost.
+- **Decision**: Keep identity in Supabase Auth, store user-facing profile attributes in a `profiles` table keyed one-to-one to the auth user identifier, and ensure a basic profile record exists the first time a verified session is established.
+- **Rationale**: This keeps auth-managed fields separate from app-owned profile data while avoiding vendor-specific database triggers for initial profile creation.
+- **Alternatives considered**: Storing all user-visible fields only in auth metadata was rejected because it makes future validation and relational queries harder. Creating the profile exclusively through a database trigger was rejected because it adds tighter backend coupling to a vendor-specific auth table.
 
-## Decision 6: Use a three-layer test strategy from the start
+## Decision 8: Use a three-layer test strategy from the start
 
 - **Decision**: Use `jest-expo` for unit tests, React Native Testing Library plus a local Supabase stack for integration tests, and Maestro for mobile end-to-end flows.
 - **Rationale**: This test mix satisfies the constitution's mandatory unit/integration/E2E coverage while remaining practical for an Expo-managed application.

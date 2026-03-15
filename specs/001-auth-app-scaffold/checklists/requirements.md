@@ -1,4 +1,4 @@
-# Specification Quality Checklist: Authentication Navigation Scaffold
+# Specification Quality Checklist: Authentication Account Scaffold
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning
 **Created**: 2026-03-15
@@ -31,5 +31,5 @@
 
 ## Notes
 
-- Validated against the completed specification on 2026-03-15.
-- Scope is intentionally limited to login, home, profile, and authenticated navigation for the initial scaffold.
+- Validated against the updated specification on 2026-03-15.
+- Scope includes signup, email verification redirect to home, forgot password, login, home, profile, and authenticated navigation for the initial scaffold.

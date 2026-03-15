@@ -1,0 +1,1 @@
+update the implementation plan to to include forgot password and user signup. Users should be able to verify their email with a sent email link and then be redirected to the home page
